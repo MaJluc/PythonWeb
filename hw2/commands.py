@@ -2,8 +2,8 @@ from sys import exit
 from time import sleep
 import enum
 
-from free_assist.abstraction.command import ACommand
-from free_assist.folder_sort import FolderSorter
+from abs.command import ACommand
+from folder_sort import FolderSorter
 
 
 class MsgType(enum.Enum):
