@@ -1,6 +1,6 @@
-from free_assist.cli_interface import CLI, DATA_MODULE
-from free_assist.address_book import AddressBook
-from free_assist.notes import Notes
+from cli_interface import CLI, DATA_MODULE
+from address_book import AddressBook
+from notes import Notes
 
 
 def main():
