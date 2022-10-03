@@ -1,10 +1,10 @@
 from prompt_toolkit import print_formatted_text, ANSI
 from prompt_toolkit.shortcuts import set_title, confirm
 
-from free_assist.function import easy_table
-from free_assist.abstraction.interface import AInterface
-from free_assist.prompt import CliPrompt
-from free_assist.commands import COMMANDS, MsgType
+from function import easy_table
+from abs.interface import AInterface
+from prompt import CliPrompt
+from commands import COMMANDS, MsgType
 
 DATA_MODULE = {}
 
