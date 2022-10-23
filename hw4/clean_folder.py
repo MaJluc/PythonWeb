@@ -1,7 +1,5 @@
-from genericpath import exists
 import sys
 import pathlib
-import shutil
 import os
 
 
@@ -36,13 +34,14 @@ def sort_files(path):
     if not os.path.exists(f'archives'):
         os.mkdir(f'archives')
     if not os.path.exists(f'music'):
-        os.mkdir(f'music')
+            os.mkdir(f'music')
+    if not os.path.exists(f'else'):
+            os.mkdir(f'else')
     if path.is_dir():
         if len(os.listdir(path)) == 0:
             path.rmdir()
         else:           
             for element in path.iterdir():
-
                 if element.name in ('video', 'documents', 'archives', 'music', 'images'):
                     pass                
                 else:
@@ -58,21 +57,19 @@ def sort_files(path):
         if path.suffix.upper() in ('.MP3', '.OGG', '.WAV', '.AMR'): 
             os.replace(path, f'.\\music\\{new_file_name}{path.suffix}')
         if path.suffix.upper() in ('.ZIP', '.GZ', '.TAR'):
-            new_path = f'.\\{new_file_name}{path.suffix.lower()}'
-            new_path_nosuffix = f'.\\{new_file_name}'
-            os.rename(path, new_path) 
-            path = new_path
-            os.mkdir(f'.\\archives\\{new_file_name}')
-            shutil.unpack_archive(path, f'.\\archives\\{new_file_name}')
-            os.remove(path)
+            os.replace(path, f'.\\archives\\{new_file_name}{path.suffix}')
+        if path.suffix.upper() not in ('.ZIP', '.GZ', '.TAR', '.JPEG', '.PNG', '.JPG', '.SVG', '.AVI', '.MP4', '.MOV', '.MKV', '.DOC', '.DOCX', '.TXT', '.PDF', '.XLSX', '.PPTX', '.MP3', '.OGG', '.WAV', '.AMR'):
+            os.replace(path, f'.\\else\\{new_file_name}{path.suffix}')
 
 
+             
 def main():
-    path = sys.argv[1]
+    path = r'D:\Pyton\team_project\clean_folder\Новая папка'
+    #path = sys.argv[1]
     path = pathlib.Path(path)
-    sort_files(path)
+    while os.path.exists(path):
+        sort_files(path)
 
 
 if __name__ == '__main__':
     main()
-
