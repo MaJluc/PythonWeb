@@ -73,8 +73,8 @@ def remove(path):
 
              
 def main():
-    path = r'D:\Pyton\p-web\hw4\Новая папка'
-    #path = sys.argv[1]
+    #path = r'D:\Pyton\p-web\hw4\Новая папка'
+    path = sys.argv[1]
     path = pathlib.Path(path)
     while os.path.exists(path):
         sort_files(path)
